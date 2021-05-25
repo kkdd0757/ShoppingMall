@@ -23,20 +23,26 @@ public class Orders {
     private LocalDateTime orderDate;
     private Status status;
     private String coupon;
+    private int totalCount;
+    private int totalPrice;
 
-    public static Orders createOrder(LocalDateTime orderDate, Status status){
+    public static Orders createOrder(LocalDateTime orderDate, Status status, int totalCount, int totalPrice){
         Orders order = new Orders();
         order.orderDate = orderDate;
         order.status = status;
+        order.totalCount = totalCount;
+        order.totalPrice = totalPrice;
 
         return order;
     }
 
-    public static Orders createOrder(LocalDateTime orderDate, Status status, String coupon){
+    public static Orders createOrder(LocalDateTime orderDate, Status status, String coupon, int totalCount, int totalPrice){
         Orders order = new Orders();
         order.orderDate = orderDate;
         order.status = status;
         order.coupon = coupon;
+        order.totalCount = totalCount;
+        order.totalPrice = totalPrice;
 
         return order;
     }

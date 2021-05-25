@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Main</title>
 </head>
 <body>
-    div
+<div th:replace="fragments/header.html :: fragment-header"></div>
+<div th:replace="fragments/navbar.html :: fragment-navbar"></div>
+    <main>
+        <section>
+            <h2 class="title">핫 딜</h2>
+            <div class="hot-deal">
+                <img src="http://th4.tmon.kr/thumbs/image/417/bf3/ec4/4154bd084_700x700_95_FIT.jpg" alt="item1">
+                <div class="item-desc">
+                    <h5>만쥬데이 호두과자 외 3종</h5>
+                    <p>4+1/7+2/9+3 많이 담으면 담을수록 이득! 균일가 1,990원에 간식을 구매해보세요! </p>
+                </div>
+                <img src="http://th4.tmon.kr/thumbs/image/b61/a79/d25/b0fc9f90a_700x700_95_FIT.jpg" alt="item2">
+                <div class="item-desc">
+                    <h5>실온 닭가슴살 초특가</h5>
+                    <p>전자레인지를 사용하지않아도 되는 닭가슴살을 990원에, 총 17가지의 맛 중 골라서 드셔보세요. </p>
+                </div>
+                <img src="http://th2.tmon.kr/thumbs/image/6ea/52a/0f2/837a2d227_700x700_95_FIT.jpg" alt="item3">
+                <div class="item-desc">
+                    <h5>매일두유 1+1 </h5>
+                    <p>고단백 매일 두유를 1+1에 12,990원에 득템해보세요!</p>
+                </div>
+                <img src="http://th3.tmon.kr/thumbs/image/98d/61a/b00/11e45de57_700x700_95_FIT.jpg" alt="item4">
+                <div class="item-desc">
+                    <h5>한돈 오겹살, 삼겹살</h5>
+                    <p>제주산 오겹살과 삼겹살이 1kg에 9900원, 단 72시간만 진행!</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="title">오늘의 인기 상품</h2>
+        </section>
+    </main>
+
+    <footer>
+        <address> </address>
+    </footer>
 </body>
 </html>

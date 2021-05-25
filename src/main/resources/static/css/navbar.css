@@ -1,0 +1,39 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+head{
+    text-align: center;
+}
+.header{
+    display: flex;
+    background: #ebd034;
+    box-sizing: border-box;
+}
+.logo{
+    width: 150px;
+    margin: 10px;
+}
+.search{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.search-bar{
+    padding: 30px;
+}
+.search .search-bar:focus{
+    width: 300px;
+    transition: 0.2s;
+}
+.cart{
+    margin: 5px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.cart-img{
+    margin-left:200px;
+    width: 70px;
+}

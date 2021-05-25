@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="fragment-navbar">
+    <link href="css/navbar.css" rel="stylesheet">
+    <nav>
+        <div class="header">
+            <a href="/"><img class="logo"
+                             src="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG"
+                             alt="logo"></a>
+
+            <form class="search" onsubmit="return false;">
+                <input type="search" name="search-bar" placeholder="검색어를 입력하세요" autocomplete="on">
+                <button class="search_btn" type="submit">검색</button>
+            </form>
+
+            <div class="ui-icon-cart">
+                <a href="templates/cart.html"><img
+                        src="https://c0.klipartz.com/pngpicture/81/559/gratis-png-carro-de-la-compra-software-iconos-de-computadora-carro-de-compras.png"
+                        alt="cart" class="cart-img" ></a>
+            </div>
+        </div>
+    </nav>
+</div>
+</html>
