@@ -31,4 +31,19 @@ public class Members {
 
         return member;
     }
+
+    public static Members createMember(String name, String loginId, String password){
+        Members member = new Members();
+        member.name = name;
+        member.loginId = loginId;
+        member.password = password;
+
+        return member;
+    }
+
+    public void changePassword(String password) {
+        this.password = password;
+    }
+
+    public Members toEntity(){ return Members.createMember(name, loginId, password);}
 }

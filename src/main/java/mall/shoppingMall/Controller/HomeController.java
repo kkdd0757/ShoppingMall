@@ -21,19 +21,19 @@ public class HomeController {
     @GetMapping("/")
     public String mainPage(){ return "home";}
 
-    @GetMapping("/itemList")
-    public String itemListPage(Model model){
-        List<Items> itemList = itemService.findAll();
-        model.addAttribute("itemList", itemList);
-        return "itemList";
-    }
+//    @GetMapping("/itemList")
+//    public String itemListPage(Model model){
+//        List<Items> itemList = itemService.findAll();
+//        model.addAttribute("itemList", itemList);
+//        return "itemList";
+//    }
 
-    @PostMapping("/saveItem")
-    public String saveItemPage(@RequestParam String itemName,
-                               @RequestParam ItemType itemType,
-                               @RequestParam int itemPrice,
-                               @RequestParam int stockQuantity){
-        itemService.save(Items.createItem(itemName,itemType,itemPrice, stockQuantity));
-        return "redirect:/";
-    }
+//    @PostMapping("/saveItem")
+//    public String saveItemPage(@RequestParam String itemName,
+//                               @RequestParam ItemType itemType,
+//                               @RequestParam int itemPrice,
+//                               @RequestParam int stockQuantity){
+//        itemService.save(Items.createItem(itemName,itemType,itemPrice, stockQuantity));
+//        return "redirect:/";
+//    }
 }

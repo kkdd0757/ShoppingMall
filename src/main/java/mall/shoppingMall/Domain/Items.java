@@ -32,4 +32,8 @@ public class Items {
 
         return item;
     }
+
+//    public void controlStockQuantity(){
+//        this.stockQuantity-;
+//    }
 }

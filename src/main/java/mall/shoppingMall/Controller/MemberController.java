@@ -2,6 +2,7 @@ package mall.shoppingMall.Controller;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import mall.shoppingMall.Domain.Members;
 import mall.shoppingMall.Repository.MemberRepository;
 import mall.shoppingMall.Service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -14,48 +15,64 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    //회원가입
-    @GetMapping("/user/signup")
-    public String dispSignup(){
-        return "join";
-    }
-
-    //회원가입 처리
-    @PostMapping("/user/signup")
-    public String execSignup(MemberRepository memberRepository){
-        /*memberService.joinMember(memberRepository);*/
-
-        return "redirect:/user/login";
-    }
-
-    //로그인페이지
-    @GetMapping("/user/login")
-    public String dispLogin(){
+    @GetMapping("/login")
+    public String loginPage() {
         return "login";
     }
 
-    //로그인 결과 페이지
-    @GetMapping("/user/login/result")
-    public String dispLoginResult(){
-        return "home";
+    @GetMapping("/join")
+    public String joinPage() {
+        return "join";
     }
 
-    //로그아웃 결과 페이지
-    @GetMapping("/user/logout/result")
-    public String dispLogout(){
-        return "home";
-    }
+    @PostMapping("/join")
+    public String join(Members members) {
+        memberService.join(members.toEntity());
 
-    //접근 거부 페이지
-    @GetMapping("/user/denied")
-    public String dispDenied(){
-        return "denied";
+        return "redirect:/login";
     }
-
-    //my page
-    @GetMapping("/user/info")
-    public String dispMyInfo(){
-        return "myInfo";
-    }
-
 }
+//    //회원가입
+//    @GetMapping("/user/signup")
+//    public String dispSignup(){
+//        return "join";
+//    }
+//
+//    //회원가입 처리
+//    @PostMapping("/user/signup")
+//    public String execSignup(MemberRepository memberRepository){
+//        /*memberService.joinMember(memberRepository);*/
+//
+//        return "redirect:/user/login";
+//    }
+//
+//    //로그인페이지
+//    @GetMapping("/user/login")
+//    public String dispLogin(){
+//        return "login";
+//    }
+//
+//    //로그인 결과 페이지
+//    @GetMapping("/user/login/result")
+//    public String dispLoginResult(){
+//        return "home";
+//    }
+//
+//    //로그아웃 결과 페이지
+//    @GetMapping("/user/logout/result")
+//    public String dispLogout(){
+//        return "home";
+//    }
+//
+//    //접근 거부 페이지
+//    @GetMapping("/user/denied")
+//    public String dispDenied(){
+//        return "denied";
+//    }
+//
+//    //my page
+//    @GetMapping("/user/info")
+//    public String dispMyInfo(){
+//        return "myInfo";
+//    }
+

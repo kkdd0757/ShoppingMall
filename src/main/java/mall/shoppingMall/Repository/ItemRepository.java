@@ -21,5 +21,22 @@ public class ItemRepository {
     public List<Items> findAll(){
         return em.createQuery("select i from Items i", Items.class)
                 .getResultList();
-    }//queryDsl
+    }
+
+    public List<Items> findByName(String name) {
+        return em.createQuery("select i from Items i where i.name LIKE :name", Items.class)
+                .setParameter("name", '%' + name + '%')
+                .getResultList();
+    }
+
+    public List<Items> getSearchList() {
+        return em.createQuery("select i from Items i order by i.name desc", Items.class)
+                .setFirstResult(0)
+                .getResultList();
+    }
+
+//    public void updateStockQuantity(Long id) {
+//        Items item = em.find(Items.class, id);
+//        item.plusSearchCount();
+//    }
 }

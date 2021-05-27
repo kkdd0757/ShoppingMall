@@ -21,4 +21,12 @@ public class ItemService {
     public Items findOne(Long id){ return itemRepository.findOne(id);}
 
     public List<Items> findAll(){return itemRepository.findAll();}
+
+    public List<Items> findByName(String name) {
+        return itemRepository.findByName(name);
+    }
+
+    public List<Items> getSearchList() {
+        return itemRepository.getSearchList();
+    }
 }

@@ -1,0 +1,40 @@
+body{
+    text-align: center;
+    vertical-align: center;
+}
+
+.join-form
+.login-form{
+    margin: 350px 0 auto;
+}
+
+.join-form input
+.login-form input{
+    display: block;
+    margin: 5% auto;
+    width: 20%;
+    height: 4%;
+}
+.join-form button
+.login-form button{
+    width: 20%;
+    height: 4%;
+    border: 1px solid #fff;
+    font-family: BMHANNAPro;
+    background-color: #2D2E33;
+    color: white;
+}
+
+#joinUrl {
+    display: block;
+    margin: 10px auto;
+}
+
+#joinUrl > a > span {
+    font-family: BMHANNAPro;
+    font-size: 20px;
+    color: white;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+    margin-left: -232px;
+}
