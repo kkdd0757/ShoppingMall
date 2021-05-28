@@ -1,7 +1,7 @@
 package mall.shoppingMall.Service;
 
 import lombok.RequiredArgsConstructor;
-import mall.shoppingMall.Domain.Items;
+import mall.shoppingMall.Domain.Item;
 import mall.shoppingMall.Repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,18 +15,18 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
 
-    public void save(Items items){
-        itemRepository.save(items);}
+    public void save(Item item){
+        itemRepository.save(item);}
 
-    public Items findOne(Long id){ return itemRepository.findOne(id);}
+    public Item findOne(Long id){ return itemRepository.findOne(id);}
 
-    public List<Items> findAll(){return itemRepository.findAll();}
+    public List<Item> findAll(){return itemRepository.findAll();}
 
-    public List<Items> findByName(String name) {
+    public List<Item> findByName(String name) {
         return itemRepository.findByName(name);
     }
 
-    public List<Items> getSearchList() {
+    public List<Item> getSearchList() {
         return itemRepository.getSearchList();
     }
 }

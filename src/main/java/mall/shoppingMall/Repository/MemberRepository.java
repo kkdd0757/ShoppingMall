@@ -1,7 +1,7 @@
 package mall.shoppingMall.Repository;
 
 import lombok.RequiredArgsConstructor;
-import mall.shoppingMall.Domain.Members;
+import mall.shoppingMall.Domain.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -14,17 +14,17 @@ public class MemberRepository {
 
     private final EntityManager em;
 
-    public void save(Members members){em.persist(members);}
+    public void save(Member member){em.persist(member);}
 
-    public Members findOne(Long id){return em.find(Members.class, id);}
+    public Member findOne(Long id){return em.find(Member.class, id);}
 
-    public List<Members> findAll(){
-        return em.createQuery("select m from Members m", Members.class)
+    public List<Member> findAll(){
+        return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
 
-    public Optional<Members> findByLoginId(String loginId){
-        return em.createQuery("select m from Members m where m.loginId = :loginId", Members.class)
+    public Optional<Member> findByLoginId(String loginId){
+        return em.createQuery("select m from Member m where m.loginId = :loginId", Member.class)
                 .setParameter("loginId", loginId)
                 .getResultStream().findFirst();
     }

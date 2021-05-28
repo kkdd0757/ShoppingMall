@@ -4,36 +4,40 @@ import lombok.*;
 import mall.shoppingMall.Domain.Define.ItemType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@ToString//모든 객체를 렌더링 할 수 있어야 하는 상황에 유용
+//@ToString//데이터를 알고싶을때 사용
 @NoArgsConstructor(access = AccessLevel.PROTECTED) //파라미터 없
-public class Items {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "itemId")
+    @Column(name = "item_id")
     private Long id;
 
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> order = new ArrayList<>();
+
     private String name;
-    private Long receiptId;
-    private ItemType itemType;
     private int price;
     private int stockQuantity;
 
-    public static Items createItem(String name, ItemType itemType, int price, int stockQuantity) {
-        Items item = new Items();
+    public static Item createItem(String name, int price, int stockQuantity) {
+        Item item = new Item();
         item.name = name;
-        item.itemType = itemType;
         item.price = price;
         item.stockQuantity = stockQuantity;
 
         return item;
     }
 
-//    public void controlStockQuantity(){
-//        this.stockQuantity-;
-//    }
+    public void minusStockQuantity(int stockQuantity) {
+        this.stockQuantity -= stockQuantity;
+    }
+
+
 }

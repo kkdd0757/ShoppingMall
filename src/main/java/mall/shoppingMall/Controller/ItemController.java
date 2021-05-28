@@ -1,7 +1,7 @@
 package mall.shoppingMall.Controller;
 
 import lombok.RequiredArgsConstructor;
-import mall.shoppingMall.Domain.Items;
+import mall.shoppingMall.Domain.Item;
 import mall.shoppingMall.Service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +16,8 @@ public class ItemController {
 
     @GetMapping("/itemList")
     public String searchPage(Model model) {
-        List<Items> itemsList = itemService.getSearchList();
-        model.addAttribute("list", itemsList);
+        List<Item> itemList = itemService.getSearchList();
+        model.addAttribute("list", itemList);
         return "searchList";
     }
 }

@@ -1,9 +1,7 @@
 package mall.shoppingMall.Controller;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import mall.shoppingMall.Domain.Members;
-import mall.shoppingMall.Repository.MemberRepository;
+import mall.shoppingMall.Domain.Member;
 import mall.shoppingMall.Service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +24,8 @@ public class MemberController {
     }
 
     @PostMapping("/join")
-    public String join(Members members) {
-        memberService.join(members.toEntity());
+    public String join(Member member) {
+        memberService.join(member.toEntity());
 
         return "redirect:/login";
     }

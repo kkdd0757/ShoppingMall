@@ -1,40 +1,73 @@
-body{
-    margin: 0px;
-    padding: 0px;
+body {
+    padding: 0;
+    margin: 0;
+    /*display: inline;*/
 }
 
-.header{
-    display: flex;
-    background: #f2f2f2;
-    box-sizing: border-box;
+.header {
+    background: #d9d023;
+    justify-content: center;
 }
-.logo{
-    width: 150px;
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+.logo {
+    /*float: left;*/
     margin: 40px 10px 0px 10px;
 }
-.search{
-    margin-top: 17px;
-    text-align: center;
-    top: 30px;
-    box-sizing: border-box;
-}
-.search .search-bar{
-    padding: 8px;
-    width: 200px;
-    transition: 1s;
-}
-.search:focus{
-    width: 300px;
-}
-.cart{
-    margin: 5px;
-    box-sizing: border-box;
-    position: relative;
-    left: 300px;
+
+.logo img {
+    width: 10%
 }
 
-.cart-img{
-    width: 100px;
-    position: relative;
-    left: 950px;
+.container-right {
+    justify-content: center;
+
 }
+
+.search{
+    /*float: left;*/
+    margin-right: 10px;
+    position: relative;
+}
+.search-bar {
+    padding: 8px;
+    width: 20%;
+    transition: 1s;
+}
+
+.search-bar:focus {
+    width: 25%;
+}
+
+.search-btn {
+    border-radius: 10px;
+    background-color: #48b818;
+}
+
+.login {
+    /*float: left;*/
+}
+
+.login button {
+    background-color: #48b818;
+    width: 13%;
+    height: 10%;
+    border-radius: 10px;
+}
+
+.cart {
+    /*float: left;*/
+}
+
+.cart img {
+    width: 10%;
+}
+/*.clearfix::after{*/
+/*    display: block;*/
+/*    clear: both;*/
+/*    content: "";*/
+/*}*/
