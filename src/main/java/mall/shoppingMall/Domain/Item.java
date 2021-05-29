@@ -19,15 +19,19 @@ public class Item {
     @Column(name = "item_id")
     private Long id;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "item")
     private List<OrderItem> order = new ArrayList<>();
 
+    private String imageUrl;
+    private String descUrl;
     private String name;
     private int price;
     private int stockQuantity;
 
-    public static Item createItem(String name, int price, int stockQuantity) {
+    public static Item createItem(String name, int price, int stockQuantity, String imageUrl, String descUrl) {
         Item item = new Item();
+        item.imageUrl = imageUrl;
+        item.descUrl = descUrl;
         item.name = name;
         item.price = price;
         item.stockQuantity = stockQuantity;

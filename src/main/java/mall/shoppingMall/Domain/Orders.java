@@ -24,7 +24,7 @@ public class Orders {
     @JoinColumn(name= "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "orders")
     private List<OrderItem> orderItem = new ArrayList<>();
 
     private LocalDateTime orderDate;

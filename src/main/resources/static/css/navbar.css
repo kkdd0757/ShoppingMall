@@ -10,13 +10,15 @@ body {
 }
 
 .container {
+    display: inline-flex;
     width: 85%;
     margin: auto;
 }
 
 .logo {
-    /*float: left;*/
+    display: flex;
     margin: 40px 10px 0px 10px;
+    justify-content: flex-start;
 }
 
 .logo img {
@@ -24,12 +26,15 @@ body {
 }
 
 .container-right {
-    justify-content: center;
+    display: inline-flex;
+    justify-content: space-around;
 
 }
 
 .search{
-    /*float: left;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 10px;
     position: relative;
 }
@@ -49,18 +54,23 @@ body {
 }
 
 .login {
-    /*float: left;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login button {
-    background-color: #48b818;
+    background-color: #fff;
+    color: white;
     width: 13%;
     height: 10%;
     border-radius: 10px;
 }
 
 .cart {
-    /*float: left;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart img {
