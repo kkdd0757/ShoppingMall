@@ -1,83 +1,160 @@
-body {
-    padding: 0;
-    margin: 0;
-    /*display: inline;*/
+/*Common*/
+.body__container{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
 }
 
-.header {
-    background: #d9d023;
-    justify-content: center;
+a{
+    text-decoration: none;
 }
 
-.container {
+/*float clearfix*/
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.float--left{
+    float: left;
+}
+
+.float--right{
+    float: right;
+}
+
+/* BTN */
+.btn{
+    height: 34px;
+    background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
     display: inline-flex;
-    width: 85%;
-    margin: auto;
-}
-
-.logo {
-    display: flex;
-    margin: 40px 10px 0px 10px;
-    justify-content: flex-start;
-}
-
-.logo img {
-    width: 10%
-}
-
-.container-right {
-    display: inline-flex;
-    justify-content: space-around;
-
-}
-
-.search{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    margin-right: 10px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    cursor: pointer;
+    box-sizing: border-box;
     position: relative;
-}
-.search-bar {
-    padding: 8px;
-    width: 20%;
-    transition: 1s;
+    color: #333333;
 }
 
-.search-bar:focus {
-    width: 25%;
+.btn:hover::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
 }
 
-.search-btn {
-    border-radius: 10px;
-    background-color: #48b818;
+.btn .btn--primary {
+    border: 1px solid #65b836;
+    color: #fff;
+    background: #55a532 linear-gradient(#91dd70, #55ae2e);
 }
 
-.login {
+/* Input Text */
+.input--text{
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.75);
+    font-size: 16px;
+}
+
+.input--text:focus{
+    border-color: #51a7e8;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5);
+}
+
+/* Vendor Prefix(브라우저 업체별 접두사) */
+.input--text::-webkit-input-placeholder{color: #cacaca;;}
+.input--text::-ms-input-placeholder{color:#cacaca;}
+
+header {
+    border-bottom: 1px solid rgba(0,0,0,.75);
+    box-shadow: 0 0 5px rgba(0,0,0,.75);
+    background: #ffffff;
+}
+
+header .inner {
+    max-width: 980px;
+    height: 78px;
+    margin: 0 auto ;
+}
+
+header .menu-group{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+header .logo {
+    margin-right: 10px;
+}
+
+header .logo a {
+    background: url("static/img/logo 복사본.svg");
+    width: 32px;
+    height: 32px;
+    display: block;
+    text-indent: -9999px;
+}
+
+header .logo a:hover {
+    background: url("static/img/logo_on 복사본.svg");
+}
+
+header .main-menu{
+    display: flex;
+}
+
+header .sign-group{
+    display: flex;
+    height: 100%;
     align-items: center;
 }
 
-.login button {
-    background-color: #fff;
-    color: white;
-    width: 13%;
-    height: 10%;
-    border-radius: 10px;
-}
-
-.cart {
+header .btn-group {
+    order: 2;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.cart img {
-    width: 10%;
+header .btn-group .sign-in{
+    margin-right: 4px;
 }
-/*.clearfix::after{*/
-/*    display: block;*/
-/*    clear: both;*/
-/*    content: "";*/
-/*}*/
+
+#search-form {
+    order: 1;
+    margin-right: 12px;
+}
+
+#search {
+    width: 160px;
+    font-size: 14px;
+}
+
+#search + [type="submit"] {
+    display: none;
+}
+
+header .sub-menu {
+    display: flex;
+    margin-right: 10px;
+}
+
+header .sub-menu a{
+    background: url("https://c0.klipartz.com/pngpicture/81/559/gratis-png-carro-de-la-compra-software-iconos-de-computadora-carro-de-compras.png");
+    width: 32px;
+    height: 32px;
+    display: block;
+    text-indent: -9999px;
+}

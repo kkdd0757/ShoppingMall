@@ -22,7 +22,10 @@ public class Item {
     @OneToMany(mappedBy = "item")
     private List<OrderItem> order = new ArrayList<>();
 
+    @Column(length = 1000)
     private String imageUrl;
+
+    @Column(length = 1000)
     private String descUrl;
     private String name;
     private int price;
@@ -30,6 +33,7 @@ public class Item {
 
     public static Item createItem(String name, int price, int stockQuantity, String imageUrl, String descUrl) {
         Item item = new Item();
+
         item.imageUrl = imageUrl;
         item.descUrl = descUrl;
         item.name = name;

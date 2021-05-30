@@ -26,7 +26,7 @@ public class ItemService {
         return itemRepository.findByName(name);
     }
 
-    public List<Item> getSearchList() {
+    public List<Item> getSearchList(String name) {
         return itemRepository.getSearchList();
     }
 }

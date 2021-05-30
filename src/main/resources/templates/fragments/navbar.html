@@ -3,31 +3,32 @@
 
 <div th:fragment="fragment-navbar">
     <link href="css/navbar.css" rel="stylesheet">
-    <nav class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="/"><img src="img/favicon.png" alt="logo"></a>
+
+    <header class="section">
+        <div class="inner clearfix">
+
+            <div class="menu-group float--left">
+                <div class="logo">
+                    <a href="/">BS</a>
+                </div>
             </div>
 
-            <div class="container-right">
-                <form class="search" onsubmit="return false;">
-                    <input class="search-bar" type="search" name="search-bar" placeholder="검색어를 입력하세요" autocomplete="on">
-                    <button class="search_btn" type="submit">검색</button>
-                </form>
-
-                <div class="login">
-                    <a href="templates/login.html">
-                        <button type="button" class="login-btn">로그인</button>
-                    </a>
+            <div class="sign-group float--right">
+                <div class="btn-group">
+                    <a href="login.html" class="btn sign-in">로그인</a>
+                    <a href="join.html" class="btn sign-up">회원가입</a>
                 </div>
 
-                <div class="cart">
-                    <a href="templates/cart.html"><img
-                            src="https://c0.klipartz.com/pngpicture/81/559/gratis-png-carro-de-la-compra-software-iconos-de-computadora-carro-de-compras.png"
-                            alt="cart"></a>
+                <form action="" method="post" id="search-form">
+                    <input type="text" id="search" class="input--text" autocomplete="on" placeholder="최저가를 검색해보세요">
+                    <input type="submit" value="검색">
+                </form>
+
+                <div class="sub-menu">
+                    <a href="cart.html">cart</a>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
 </div>
 </html>
