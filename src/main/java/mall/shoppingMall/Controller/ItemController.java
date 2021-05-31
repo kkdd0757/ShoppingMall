@@ -19,7 +19,8 @@ public class ItemController {
     @GetMapping("/searchList")
     public String searchPage(@RequestParam(value = "item") String name, Model model) {
         List<Item> itemList = itemService.getSearchList(name);
-        model.addAttribute("list", itemList);
+        model.addAttribute("itemList", itemList);
+        model.addAttribute("listSize",itemList.size());
         return "searchList";
     }
 

@@ -7,6 +7,23 @@
 <body>
 <div th:replace="fragments/header.html :: fragment-header"></div>
 <div th:replace="fragments/navbar.html :: fragment-navbar"></div>
-
+<div class="searchCover">
+    <div class="searchNum">
+        <p style="margin-left: 30px;">검색결과 <span th:text="${listSize}">0</span>개</p>
+    </div>
+    <div th:if="${listSize} != 0" th:each="item : ${itemList}" class="searchContent">
+        <div>
+            <a th:href="@{/productDetail(item=${item.getId()})}"><span th:text="${item.getImageUrl()}"></span></a>
+            <p th:text="${item.getName()}" class="searchDetail"></p>
+        </div>
+    </div>
+    <div th:unless="${listSize} != 0">
+        <div>
+            <p>검색된 내용이 없습니다.</p>
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/search.js"></script>
 </body>
 </html>
