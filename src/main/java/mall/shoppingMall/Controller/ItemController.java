@@ -25,7 +25,7 @@ public class ItemController {
     }
 
     @GetMapping("/productDetail")
-    public String productDetail(@RequestParam(value = "item") Long id, Model model) {
+    public String productDetail(@RequestParam(name = "id") Long id, Model model) {
         Item item = itemService.findOne(id);
         model.addAttribute("item", item);
 

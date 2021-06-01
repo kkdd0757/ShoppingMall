@@ -4,92 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <title>Product Details</title>
 </head>
 <body>
 <div th:replace="fragments/header.html :: fragment-header"></div>
 <div class="content" th:object="${item}"></div>
 <div th:replace="fragments/navbar.html :: fragment-navbar"></div>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-<h3 class="mb-3">[특가] 히트상품 캡슐커피 신제품 포함</h3>
-<h5>9900원~</h5>
+<div style="overflow: hidden">
+    <img th:src="${item.getImageUrl()}" alt="item" style="width: 320px; margin:0 auto; float: left">
+    <h3 class="mb-3 " th:text="${item.getName()}" style="font-weight: 600; font-size: 32px;"></h3>
+    <h5 th:text="${item.getPrice()}" style="font-size: 20px; font-weight: 500;">9900원~</h5>
 
-<div class="list-group">
-    <a class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">결제혜택</h5>
-        </div>
-        <p class="text-center">
-        <ul>
-            <li>카카오페이 결제 시 최대 3000원 할인</li>
-            <li>토스 결제 시 최대 2% 적립</li>
-            <li>네이버페이 결제 시 최대 3% 페이백</li>
-        </ul>
-        </p>
-    </a>
-    <a class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-3">배송정보</h5>
-        </div>
-        <p class="mb-1">
-        <ul>
-            무료배송<br>
-            <small class="text-muted">CJ 대한통운 | 품질보증</small>
-        </ul>
-        </p>
-    </a>
-    <a class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-3">옵션선택</h5>
-        </div>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>상품명</option>
-            <option value="1">옵션 1번</option>
-            <option value="2">옵션 2번</option>
-            <option value="3">옵션 3번</option>
-            <option value="4">옵션 4번</option>
-            <option value="5">옵션 5번</option>
-        </select>
-        <br>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">장바구니 담기</button>
-        </div>
-    </a>
+
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between" style="margin: 7px;">
+                <h5 class="mb-1" style="font-size: 20px; font-weight: 500;">결제혜택</h5>
+            </div>
+            <p class="text-center">
+            <ul>
+                <li>카카오페이 결제 시 최대 3000원 할인</li>
+                <li>토스 결제 시 최대 2% 적립</li>
+                <li>네이버페이 결제 시 최대 3% 페이백</li>
+            </ul>
+            </p>
+        </a>
+
+        <a class="list-group-item list-group-item-action" style="margin: 7px; padding: 5px;">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-3" style="font-size: 20px; font-weight: 500;">배송정보</h5>
+            </div>
+            <p class="mb-1">
+            <ul>
+                무료배송<br>
+                <small class="text-muted">CJ 대한통운 | 품질보증</small>
+            </ul>
+            </p>
+        </a>
+
+        <a class="list-group-item list-group-item-action" style="margin: 7px; padding: 5px;">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="button">장바구니 담기</button>
+            </div>
+        </a>
+    </div>
 </div>
 
+<br>
 <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-top: 10px;">
         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
                 role="tab" aria-controls="nav-home" aria-selected="true">상품설명
         </button>
@@ -105,32 +70,12 @@
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <img src="..." class="img-fluid" alt="..."><br>
-        <img src="..." class="img-fluid" alt="..."><br>
-        <img src="..." class="img-fluid" alt="..."><br>
-        <img src="..." class="img-fluid" alt="..."><br>
-        <img src="..." class="img-fluid" alt="..."><br>
+    <div id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <img th:src="${item.getDescUrl()}" class="img-fluid" alt="description" style="margin: 0 auto">
     </div>
+
     <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-profile-tab">
         <br><h4 class="text-center">상품리뷰</h4>
-
-        <div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">댓글1</li>
-                <li class="list-group-item">댓글2</li>
-                <li class="list-group-item">댓글3</li>
-            </ul>
-
-            <div class="input-group mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <label for="exampleFormControlTextarea1" class="input-group-text" type="submit">등록하기</label>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="nav-qna" role="tabpanel" aria-labelledby="nav-contact-tab">
-        <br><h4 class="text-center">상품문의</h4>
-
         <div class="input-group mb-3">
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             <label for="exampleFormControlTextarea1" class="input-group-text" type="submit">등록하기</label>
@@ -138,22 +83,27 @@
 
         <div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">문의1</li>
-                <li class="list-group-item">문의2</li>
-                <li class="list-group-item">문의3</li>
+                <li class="list-group-item">상품 리뷰가 없습니다.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="nav-qna" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <br><h4 class="text-center">상품문의</h4>
+
+        <div class="input-group mb-3">
+            <textarea class="form-control" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1" class="input-group-text" type="submit">등록하기</label>
+        </div>
+
+        <div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">상품 문의가 없습니다</li>
             </ul>
 
         </div>
     </div>
     <div class="tab-pane fade" id="nav-refund" role="tabpanel" aria-labelledby="nav-contact-tab">
-        <div class="card">
-            <div class="card-body">
-                <p class="text-center card-text">지금 바로 환불/교환을 신청 할 수 있습니다</p>
-                <div class="d-grid gap-2 col-3 mx-auto">
-                    <button class="btn btn-warning" type="button">환불/교환 신청</button>
-                </div>
-            </div>
-        </div>
         <div class="list-group">
             <a class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
@@ -177,6 +127,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
     -->
 
-
+</div>
 </body>
 </html>
