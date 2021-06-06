@@ -17,7 +17,7 @@ public class OrderRepository {
 
     public Orders findOne(Long id){ return em.find(Orders.class, id);}
 
-    public List<Orders> findAll(Long id){
+    public List<Orders> findAll(){
         return em.createQuery("select o from Orders o", Orders.class)
                 .getResultList();
     }

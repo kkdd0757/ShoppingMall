@@ -13,8 +13,10 @@ $(document).ready(function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader(header, token);
             },
-            
-            success: (data)=>{console.log(data)},
+
+            success: (data)=>{
+                console.log(data);
+            },
             error: (log)=>{alert("실패"+log)}
         });
     });

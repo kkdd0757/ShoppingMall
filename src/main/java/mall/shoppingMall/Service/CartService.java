@@ -3,6 +3,7 @@ package mall.shoppingMall.Service;
 import mall.shoppingMall.Domain.Item;
 import mall.shoppingMall.Repository.CartRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -29,4 +30,6 @@ public class CartService {
     public void reset(){
         cartRepository.reset();
     }
+
+
 }
