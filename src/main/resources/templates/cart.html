@@ -6,6 +6,7 @@
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/cart.css">
     <title>Cart</title>
     <!--    Boostrap   -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,30 +16,29 @@
 <div th:replace="fragments/header.html :: fragment-header"></div>
 <div th:replace="fragments/navbar.html :: fragment-navbar"></div>
 <div class="content">
-    <div th:each="item: ${itemList}">
+    <div class="clearfix" th:each="item, index: ${itemList}">
         <div class="product">
-            <input type="hidden" class="itemId" th:value="${item.getId()}">
-            <img th:src="${item.getImageUrl()}" alt="cartImg">
-            <h5 th:text="${item.getName()}"></h5>
-            <h5 th:text="${item.getPrice()}"></h5>
-            <input th:class="amount" type="text" value="1" class="quantity">
+            <input type="hidden" th:id="price_+${index.index}" th:value="${item.getPrice()}">
+            <input type="hidden" th:id="itemId_+${index.index}" th:value="${item.getId()}">
+            <img class="cartImg" th:src="${item.getImageUrl()}" alt="cartImg">
+            <h5 class="cartItemName" th:text="${item.getName()}"></h5>
+            <h5 class="cartItemPrice" th:text="${item.getPrice()}"></h5>
+            <input type="text" value="1" class="quantity" th:id="quantity_+${index.index}" onkeyup="setTotalPrice()">
         </div>
     </div>
 </div>
 
 <br>
 <div class="list-group">
-<!--    <a class="list-group-item list-group-item-action">-->
-<!--        <div class="d-flex w-100 justify-content-between">-->
-<!--            <h5 class="mb-1">배송비</h5>-->
-<!--            <small class="text-muted" th:text="">###원</small>-->
-<!--        </div>-->
-<!--    </a>-->
+    <!--    <a class="list-group-item list-group-item-action">-->
+    <!--        <div class="d-flex w-100 justify-content-between">-->
+    <!--            <h5 class="mb-1">배송비</h5>-->
+    <!--            <small class="text-muted" th:text="">###원</small>-->
+    <!--        </div>-->
+    <!--    </a>-->
     <a class="list-group-item list-group-item-action active" aria-current="true">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">결제 예정 금액</h5>
-            <small>###원</small>//총합계 계산하기
-        </div>
+        <h5 class="mb-1">결제 예정 금액</h5>
+        <small id="display">###원</small>
     </a>
 </div>
 <br>
