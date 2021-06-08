@@ -28,4 +28,5 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
+    public List<Orders> findHistory(){ return  orderRepository.findHistory(); }
 }

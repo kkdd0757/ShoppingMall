@@ -1,6 +1,7 @@
 package mall.shoppingMall.Repository;
 
 import lombok.RequiredArgsConstructor;
+import mall.shoppingMall.Domain.OrderItem;
 import mall.shoppingMall.Domain.Orders;
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +20,12 @@ public class OrderRepository {
 
     public List<Orders> findAll(){
         return em.createQuery("select o from Orders o", Orders.class)
+                .getResultList();
+    }
+
+    public List<Orders> findHistory(){
+        return em.createQuery("select o from Orders o join fetch o.orderItem order by o.id desc", Orders.class)
+                .setMaxResults(1)
                 .getResultList();
     }
 

@@ -25,4 +25,15 @@ public class OrderItem {
 
     private int itemCount;
     private int itemTotalPrice;
+
+    protected OrderItem(){
+
+    }
+
+    public OrderItem(Orders orders, Item item, int itemCount, int itemTotalPrice) {
+        this.orders = orders;
+        this.item = item;
+        this.itemCount = itemCount;
+        this.itemTotalPrice = itemTotalPrice;
+    }
 }

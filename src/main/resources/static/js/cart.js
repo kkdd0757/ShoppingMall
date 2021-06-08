@@ -14,7 +14,7 @@ function getTotalPrice() {
     let length = $(".quantity").length;
     let totalPrice = 0;
 
-    for(let idx = 0; idx < length; idx++) {
+    for (let idx = 0; idx < length; idx++) {
         let price = $(`#price_${idx}`).val();
         let quantity = $(`#quantity_${idx}`).val();
 
@@ -43,14 +43,19 @@ let cart = {
 
             let params = [];
 
-            [...document.querySelectorAll(".product")].forEach(product => {
-                let itemId = $(product).children(".itemId").val();
-                let quantity = $(product).children(".quantity").val();
+            let length = $(".quantity").length;
+
+            for (let idx = 0; idx < length; idx++) {
+                let id = $(`#itemId_${idx}`).val();
+                let price = $(`#price_${idx}`).val();
+                let quantity = $(`#quantity_${idx}`).val();
+
                 params.push({
-                    "itemId": itemId,
-                    "quantity": quantity
+                    "itemId": id,
+                    "quantity": quantity,
+                    "price": price
                 });
-            });
+            }
 
             let token = $("meta[name='_csrf']").attr("content");
             let header = $("meta[name='_csrf_header']").attr("content");
@@ -71,7 +76,7 @@ let cart = {
                         alert("결제에 실패했습니다");
                         return false;
                     }
-                    alert("결제에 성공했습니다.");
+                    alert(res.message);
                     location.replace("/");
                 },
                 error: (log) => {

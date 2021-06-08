@@ -15,7 +15,7 @@ public class MemberController {
 
     @GetMapping("/login")
     public String loginPage() {
-        return "login";
+        return "history";
     }
 
     @GetMapping("/join")
