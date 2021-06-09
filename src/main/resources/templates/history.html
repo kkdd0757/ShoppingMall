@@ -9,34 +9,43 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cart.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Product History</title>
 </head>
 
 
-<body> //수정하기
-<!--<div th:replace="fragments/header.html :: fragment-header"></div>-->
-<!--<div class="content" th:object="${orderList}"></div>-->
-<!--<div th:replace="fragments/navbar.html :: fragment-navbar"></div>-->
-<!--<input type="hidden" th:value="${orderList.get()}" id="hiddenValue">-->
+<body>
+<div th:replace="fragments/header.html :: fragment-header"></div>
+<div class="content" th:object="${order}"></div>
+<div th:replace="fragments/navbar.html :: fragment-navbar"></div>
 
-<!--<div style="overflow: hidden">-->
-<!--    <img th:src="${item.getImageUrl()}" alt="item" style="width: 320px; margin:0 auto; float: left">-->
-<!--    <h3 class="mb-3 " th:text="${item.getName()}" style="font-weight: 600; font-size: 32px; margin-top: 10px;"></h3>-->
-<!--    <h5 th:text="${item.getPrice()}" style="font-size: 20px; font-weight: 500;">9900원~</h5>-->
-<!--    &lt;!&ndash; Optional JavaScript; choose one of the two! &ndash;&gt;-->
-<!--    <script src="js/productDetail.js"></script>-->
-<!--    <script src="js/cart.js"></script>-->
-<!--    &lt;!&ndash; Option 1: Bootstrap Bundle with Popper &ndash;&gt;-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"-->
-<!--            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"-->
-<!--            crossorigin="anonymous"></script>-->
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
-    -->
+<!---->
+<div class="content">
+    <div class="clearfix" >
+        <div class="product">
+            <h4 style="margin-top: 10px;">주문날짜 : </h4>
+            <h5 class="cartItemPrice" th:text="${order.getOrderDate()}" ></h5>
+            <h4 >주문 상품</h4>
+            <div class="cartItemName clearfix" th:each="orderItem: ${order.getOrderItem()}" >
+                <img class="cartImg" th:src="${orderItem.getItem().getImageUrl()}">
+                <h5 th:text="${orderItem.getItem().getName()}"></h5>
+                <h5 th:text="${orderItem.getItem().getPrice()}"></h5>
+            </div>
+            <h4 >총 구매 개수</h4>
+            <h5 class="cartItemPrice" th:text="${order.getTotalCount()}"></h5>
+            <h4>총 가격</h4>
+            <h5 class="cartItemPrice" th:text="${order.getTotalPrice()}"></h5>
+        </div>
+    </div>
+</div>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="js/productDetail.js"></script>
+    <script src="js/cart.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+            crossorigin="anonymous"></script>
 
 </div>
 </body>
